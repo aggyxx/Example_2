@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #B91C1C;
+  --color-brand-red-accent: #DC2626;
+  --color-brand-red-dark: #991B1B;
+  --color-brand-blue: #1E3A5F;
+  --color-brand-blue-accent: #2563EB;
+  --color-brand-blue-light: #DBEAFE;
+  --color-brand-navy: #0F1D2F;
+  --color-brand-charcoal: #1F2937;
+  --color-brand-dark: #111827;
+  --color-brand-gray: #F5F5F5;
+  --color-brand-gray-mid: #9CA3AF;
+  --color-brand-white: #FFFFFF;
+
+  --font-heading: "DM Sans", "Segoe UI", Arial, sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-brand-charcoal);
+  background: var(--color-brand-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
