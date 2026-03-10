@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import StarsBackground from "@/components/StarsBackground";
 
 const checkCategories = [
   {
@@ -70,11 +71,12 @@ export default function GBPAnalyzer() {
   return (
     <>
       {/* Hero + Form */}
-      <section className="bg-gradient-to-br from-brand-navy via-brand-blue to-brand-navy relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(185,28,28,0.4),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(37,99,235,0.3),transparent_50%)]" />
-        </div>
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-black/80" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -102,15 +104,15 @@ export default function GBPAnalyzer() {
             </div>
 
             {/* Form Card */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-10">
-              <h2 className="text-xl font-bold text-brand-charcoal font-[family-name:var(--font-heading)]">
+            <div className="bg-gray-900 border border-gray-800 rounded-2xl shadow-2xl p-8 md:p-10">
+              <h2 className="text-xl font-bold text-white font-[family-name:var(--font-heading)]">
                 Analyze Your Profile
               </h2>
-              <p className="mt-1 text-sm text-gray-500">Enter your details below to get your free score.</p>
+              <p className="mt-1 text-sm text-gray-400">Enter your details below to get your free score.</p>
 
               <form onSubmit={handleSubmit} className="mt-6 space-y-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-brand-charcoal mb-1.5">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5">
                     Full Name *
                   </label>
                   <input
@@ -119,13 +121,13 @@ export default function GBPAnalyzer() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/40 focus:border-brand-red transition-colors placeholder-gray-500"
                     placeholder="John Smith"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-brand-charcoal mb-1.5">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1.5">
                     Email Address *
                   </label>
                   <input
@@ -134,13 +136,13 @@ export default function GBPAnalyzer() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/40 focus:border-brand-red transition-colors placeholder-gray-500"
                     placeholder="john@example.com"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="gbpUrl" className="block text-sm font-medium text-brand-charcoal mb-1.5">
+                  <label htmlFor="gbpUrl" className="block text-sm font-medium text-gray-300 mb-1.5">
                     Google Business Profile URL *
                   </label>
                   <input
@@ -149,10 +151,10 @@ export default function GBPAnalyzer() {
                     required
                     value={formData.gbpUrl}
                     onChange={(e) => setFormData({ ...formData, gbpUrl: e.target.value })}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white text-sm focus:outline-none focus:ring-2 focus:ring-brand-red/40 focus:border-brand-red transition-colors placeholder-gray-500"
                     placeholder="https://maps.google.com/..."
                   />
-                  <p className="mt-1.5 text-xs text-gray-400">
+                  <p className="mt-1.5 text-xs text-gray-500">
                     Search your business on Google Maps, click your listing, and copy the URL from your browser.
                   </p>
                 </div>
@@ -160,7 +162,7 @@ export default function GBPAnalyzer() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full px-6 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-brand-red-dark transition-all shadow-lg shadow-red-900/20 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="w-full px-6 py-4 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition-all hover:shadow-[0_0_25px_rgba(185,28,28,0.5)] disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-wider"
                 >
                   {status === "loading" ? (
                     <span className="flex items-center justify-center gap-2">
@@ -176,7 +178,7 @@ export default function GBPAnalyzer() {
                 </button>
 
                 {status === "error" && (
-                  <p className="text-red-600 text-sm text-center">{errorMsg}</p>
+                  <p className="text-red-400 text-sm text-center">{errorMsg}</p>
                 )}
               </form>
             </div>
@@ -185,11 +187,12 @@ export default function GBPAnalyzer() {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-b from-black via-gray-900/95 to-black py-20 md:py-28 overflow-hidden">
+        <StarsBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-blue">Simple Process</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">Simple Process</span>
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
               How It Works
             </h2>
           </div>
@@ -204,8 +207,8 @@ export default function GBPAnalyzer() {
                 <div className="mx-auto w-14 h-14 rounded-full bg-brand-red text-white flex items-center justify-center text-xl font-extrabold">
                   {s.step}
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-brand-charcoal">{s.title}</h3>
-                <p className="mt-2 text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <h3 className="mt-5 text-lg font-bold text-white">{s.title}</h3>
+                <p className="mt-2 text-sm text-gray-400 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -213,28 +216,28 @@ export default function GBPAnalyzer() {
       </section>
 
       {/* What We Check */}
-      <section className="py-20 md:py-28 bg-brand-gray">
+      <section className="bg-brand-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">Comprehensive</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
               What We Analyze
             </h2>
-            <p className="mt-4 text-gray-500">
+            <p className="mt-4 text-gray-400">
               We evaluate your Google Business Profile across six critical factors that impact your local search visibility.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {checkCategories.map((cat) => (
-              <div key={cat.title} className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
-                <div className="w-12 h-12 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center">
+              <div key={cat.title} className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-700 hover:shadow-[0_0_20px_rgba(185,28,28,0.2)] transition-all">
+                <div className="w-12 h-12 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={cat.icon} />
                   </svg>
                 </div>
-                <h3 className="mt-4 font-bold text-brand-charcoal">{cat.title}</h3>
-                <p className="mt-1.5 text-sm text-gray-500">{cat.description}</p>
+                <h3 className="mt-4 font-bold text-white">{cat.title}</h3>
+                <p className="mt-1.5 text-sm text-gray-400">{cat.description}</p>
               </div>
             ))}
           </div>
