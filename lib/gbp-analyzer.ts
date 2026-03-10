@@ -44,7 +44,7 @@ function scoreReviews(count: number): CategoryScore {
     suggestions.push("You're building momentum. Push toward 50+ reviews to dominate local search.");
   } else if (count < 50) {
     score = 15;
-    suggestions.push("Great review count! Keep the momentum going — consistency matters for rankings.");
+    suggestions.push("Great review count! Keep the momentum going; consistency matters for rankings.");
   } else if (count < 100) {
     score = 18;
     suggestions.push("Strong review count. Focus on maintaining quality responses to every review.");
@@ -73,7 +73,7 @@ function scoreRating(rating: number): CategoryScore {
     suggestions.push("Good rating! Focus on consistently exceeding expectations to push above 4.5 stars.");
   } else if (rating < 4.8) {
     score = 17;
-    suggestions.push("Excellent rating. Respond to every review — Google rewards active engagement.");
+    suggestions.push("Excellent rating. Respond to every review; Google rewards active engagement.");
   } else {
     score = 20;
   }
@@ -115,7 +115,7 @@ function scoreDescription(has: boolean): CategoryScore {
     maxScore: 10,
     suggestions: [
       "Add a compelling business description with your key services, service area, and what makes you different.",
-      "Include relevant keywords naturally — think about what customers search for when looking for your services.",
+      "Include relevant keywords naturally; think about what customers search for when looking for your services.",
     ],
   };
 }
@@ -129,7 +129,7 @@ function scoreHours(has: boolean): CategoryScore {
     score: 0,
     maxScore: 10,
     suggestions: [
-      "Add your business hours. Customers skip profiles without hours listed — they assume you're not active.",
+      "Add your business hours. Customers skip profiles without hours listed; they assume you're not active.",
       "Include special hours for holidays to show Google your profile is well-maintained.",
     ],
   };
@@ -157,7 +157,7 @@ function scoreCategories(has: boolean): CategoryScore {
     maxScore: 10,
     suggestions: [
       "Set your primary business category and add relevant secondary categories.",
-      "Categories directly impact which searches your profile shows up in — choose wisely.",
+      "Categories directly impact which searches your profile shows up in; choose wisely.",
     ],
   };
 }

@@ -96,7 +96,7 @@ export async function sendResultsEmail(
   const resendKey = process.env.RESEND_API_KEY;
 
   if (!resendKey) {
-    console.warn("Resend API key not configured — skipping email send");
+    console.warn("Resend API key not configured; skipping email send.");
     return null;
   }
 
@@ -111,7 +111,7 @@ export async function sendResultsEmail(
     body: JSON.stringify({
       from: "School of Home Service <results@schoolofhomeservice.com>",
       to,
-      subject: `Your GBP Score: ${analysis.totalScore}/100 — ${analysis.grade}`,
+      subject: `Your GBP Score: ${analysis.totalScore}/100, ${analysis.grade}`,
       html,
     }),
   });

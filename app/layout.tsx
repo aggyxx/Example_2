@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="antialiased">
+        <TopBar />
         <Navbar />
         <main>{children}</main>
         <Footer />

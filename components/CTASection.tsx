@@ -1,45 +1,29 @@
 import Link from "next/link";
+import StarsBackground from "@/components/StarsBackground";
 
-interface CTASectionProps {
-  headline?: string;
-  subheadline?: string;
-  ctaText?: string;
-  ctaHref?: string;
-  variant?: "dark" | "red" | "blue";
-}
-
-export default function CTASection({
-  headline = "Ready to Transform Your Business?",
-  subheadline = "Take the first step toward building a home service business that generates consistent revenue and runs without you.",
-  ctaText = "Get Started Today",
-  ctaHref = "/contact",
-  variant = "dark",
-}: CTASectionProps) {
-  const bgClass =
-    variant === "red"
-      ? "bg-brand-red"
-      : variant === "blue"
-      ? "bg-gradient-to-br from-brand-blue to-brand-navy"
-      : "bg-brand-dark";
-
+export default function CTASection() {
   return (
-    <section className={`${bgClass} py-20 md:py-28 relative overflow-hidden`}>
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,white,transparent_70%)]" />
-      </div>
+    <section className="relative py-28 md:py-36 overflow-hidden">
+      <StarsBackground />
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80')" }}
+      />
+      <div className="absolute inset-0 bg-black/70" />
+
       <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight font-[family-name:var(--font-heading)]">
-          {headline}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight font-[family-name:var(--font-heading)] italic">
+          The American Dream Isn&apos;t Dead. You Just Need the Right Blueprint.
         </h2>
-        <p className="mt-6 text-gray-300 text-lg leading-relaxed">{subheadline}</p>
+        <p className="mt-6 text-gray-300 text-lg leading-relaxed">
+          Join hundreds of contractors across the nation who stopped guessing and started growing. Your next chapter starts now.
+        </p>
         <Link
-          href={ctaHref}
-          className="mt-10 inline-flex items-center px-8 py-4 bg-brand-red text-white font-semibold rounded-lg hover:bg-brand-red-dark transition-all shadow-lg shadow-red-900/30 text-sm md:text-base"
+          href="/contact"
+          className="mt-10 inline-flex items-center px-10 py-4 bg-brand-red text-white font-bold rounded-full hover:bg-brand-red-dark transition-all text-sm uppercase tracking-wider hover:shadow-[0_0_25px_rgba(185,28,28,0.5)]"
         >
-          {ctaText}
-          <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          Get Started
         </Link>
       </div>
     </section>

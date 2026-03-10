@@ -14,10 +14,11 @@ export default function TestimonialCard({
   accent = "red",
 }: TestimonialCardProps) {
   const borderColor = accent === "red" ? "border-t-brand-red" : "border-t-brand-blue-accent";
+  const glowColor = accent === "red" ? "hover:shadow-[0_0_20px_rgba(185,28,28,0.3)]" : "hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]";
 
   return (
     <div
-      className={`bg-white border border-gray-100 border-t-4 ${borderColor} rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow`}
+      className={`bg-gray-900 border border-gray-800 border-t-4 ${borderColor} rounded-xl p-6 hover:scale-[1.02] ${glowColor} transition-all duration-300`}
     >
       <div className="flex items-center gap-1 mb-4">
         {[...Array(5)].map((_, i) => (
@@ -26,9 +27,9 @@ export default function TestimonialCard({
           </svg>
         ))}
       </div>
-      <p className="text-gray-600 text-sm leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
-      <div className="pt-4 border-t border-gray-50">
-        <div className="font-semibold text-brand-charcoal text-sm">{name}</div>
+      <p className="text-gray-400 text-sm leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+      <div className="pt-4 border-t border-gray-800">
+        <div className="font-semibold text-white text-sm">{name}</div>
         <div className="text-xs text-gray-500 mt-0.5">
           {business} &middot; {location}
         </div>

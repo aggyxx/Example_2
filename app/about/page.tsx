@@ -1,97 +1,94 @@
 import type { Metadata } from "next";
-import Hero from "@/components/Hero";
+import Link from "next/link";
 import CTASection from "@/components/CTASection";
+import StarsBackground from "@/components/StarsBackground";
 
 export const metadata: Metadata = {
-  title: "About Us | School of Home Service",
-  description: "Learn how School of Home Service empowers contractors and home service professionals with proven growth strategies.",
+  title: "Who We Are | School of Home Service",
+  description: "Learn how School of Home Service empowers American contractors with real-world growth strategies.",
 };
-
-const differentiators = [
-  {
-    title: "We've Been in Your Boots",
-    description:
-      "We didn't learn this in a classroom. Our team has built, scaled, and sold real home service businesses. Every strategy we teach comes from the field, not from theory.",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-  },
-  {
-    title: "No One-Size-Fits-All",
-    description:
-      "We don't hand you a template and wish you luck. Your business is unique, and your growth plan should be too. We build custom systems around your goals, market, and capacity.",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-      </svg>
-    ),
-  },
-  {
-    title: "No Paid Ads Dependency",
-    description:
-      "Most agencies want to run your ads and collect a fee. We teach you how to build organic demand, strong positioning, and local authority so you own your pipeline.",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-      </svg>
-    ),
-  },
-  {
-    title: "We're in It With You",
-    description:
-      "This isn't a course you buy and figure out alone. We provide ongoing support, coaching, and accountability because we know that's what actually drives results.",
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-  },
-];
 
 export default function About() {
   return (
     <>
-      <Hero
-        headline="Empowering Home Service Professionals"
-        subheadline="We help contractors build businesses that don't rely on luck, paid ads, or chasing cheap jobs. The goal is simple: consistent work, better clients, and a business that actually feels under control."
-        ctaText="See The Program"
-        ctaHref="/program"
-      />
+      {/* Hero */}
+      <section className="relative min-h-[50vh] flex items-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white font-[family-name:var(--font-heading)]">
+            Built by Contractors. For Contractors.
+          </h1>
+          <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
+            Real strategies from people who&apos;ve actually swung hammers, run crews, and built companies from scratch.
+          </p>
+          <Link
+            href="/program"
+            className="mt-8 inline-flex items-center px-8 py-4 bg-brand-red text-white font-semibold rounded-full hover:bg-brand-red-dark transition-all hover:shadow-[0_0_25px_rgba(185,28,28,0.5)] text-sm uppercase tracking-wider"
+          >
+            See The Program
+          </Link>
+        </div>
+      </section>
 
-      {/* Our Story */}
-      <section className="py-20 md:py-28 bg-white">
+      {/* Photo strip */}
+      <div className="grid grid-cols-5 h-32 md:h-48">
+        {[
+          "photo-1504307651254-35680f356dfd",
+          "photo-1581094794329-c8112a89af12",
+          "photo-1529156069898-49953e39b3ac",
+          "photo-1541888946425-d81bb19240f5",
+          "photo-1560250097-0b93528c311a",
+        ].map((id) => (
+          <div key={id} className="bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/${id}?w=400&h=200&fit=crop')` }} />
+        ))}
+      </div>
+
+      {/* Our Story + Mission */}
+      <section className="bg-brand-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">Our Story</span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
-                Where This Started
+              <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
+                Where This All Started
               </h2>
-              <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
+              <div className="mt-6 space-y-4 text-gray-400 leading-relaxed">
                 <p>
-                  School of Home Service was born from firsthand experience in the trades. Our team has spent years building, running, and scaling real home service companies — from lawn care and landscaping to plumbing and electrical.
+                  School of Home Service was born from years of blood, sweat, and calluses. Our team
+                  has built, scaled, and sold real home service companies across America, from landscaping
+                  and roofing to plumbing and HVAC.
                 </p>
                 <p>
-                  We know what it&apos;s like to be busy one month and dead the next. We know the frustration of wasting money on marketing that doesn&apos;t work, hiring the wrong people, and feeling like you&apos;re building a job instead of a business.
+                  We know the feast-or-famine cycle. We know what it feels like to dump money into
+                  marketing that goes nowhere, hire the wrong guy, and wonder if you&apos;re building
+                  a career or just buying yourself a job.
                 </p>
                 <p>
-                  That experience became the foundation of everything we teach. Not theory. Not recycled advice from people who&apos;ve never run a crew or dealt with a no-show on a Monday morning. Real, proven strategies that work in the real world.
+                  That firsthand experience is the backbone of everything we teach. No recycled
+                  business-school theory. Just proven playbooks from people who&apos;ve actually
+                  managed crews, chased invoices, and survived slow seasons.
                 </p>
               </div>
             </div>
             <div>
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-blue">Our Mission</span>
-              <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
-                What Drives Us
+              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-blue-accent">Our Mission</span>
+              <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
+                What Keeps Us Going
               </h2>
-              <div className="mt-6 space-y-4 text-gray-600 leading-relaxed">
+              <div className="mt-6 space-y-4 text-gray-400 leading-relaxed">
                 <p>
-                  We believe every hardworking contractor deserves a business that provides financial freedom, time with family, and pride in what they&apos;ve built. Too many talented tradespeople are stuck working 60+ hour weeks with nothing to show for it.
+                  Every hardworking contractor in this country deserves a business that creates real
+                  freedom: financial stability, time with family, and pride in something they built.
+                  Too many talented tradespeople are grinding 70-hour weeks with nothing to show for it.
                 </p>
                 <p>
-                  Our mission is to change that — one business at a time. We&apos;ve helped hundreds of home service professionals across the U.S. and Canada build systems for consistent demand, strong positioning, and sustainable growth.
+                  We&apos;re here to change that. We&apos;ve helped hundreds of home service
+                  professionals across the U.S. install systems for consistent demand, stronger
+                  positioning, and sustainable growth that actually lasts.
                 </p>
               </div>
             </div>
@@ -100,35 +97,36 @@ export default function About() {
       </section>
 
       {/* Who It's For / Not For */}
-      <section className="py-20 md:py-28 bg-brand-gray">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-gradient-to-b from-black via-gray-900/95 to-black py-20 md:py-28 overflow-hidden">
+        <StarsBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
               Is This Right For You?
             </h2>
-            <p className="mt-4 text-gray-500">We&apos;re honest about who we work with — and who we don&apos;t.</p>
+            <p className="mt-4 text-gray-400">We&apos;re straight shooters. Here&apos;s who we work with, and who we don&apos;t.</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl p-8 border border-gray-100 shadow-sm">
+            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800 border-t-4 border-t-green-600 hover:shadow-[0_0_25px_rgba(22,163,74,0.3)] transition-all">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-green-900/30 text-green-400 flex items-center justify-center">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-brand-charcoal">This IS For You If...</h3>
+                <h3 className="text-lg font-bold text-white">This IS For You If...</h3>
               </div>
               <ul className="space-y-3">
                 {[
-                  "You do solid work and care about your reputation",
-                  "You're tired of junk leads and price shoppers",
-                  "You're done paying agencies that promise the world and disappear",
-                  "You want a system you actually understand and control",
-                  "You're ready to put in the work to build something lasting",
+                  "You do solid work and take pride in your reputation",
+                  "You're tired of bottom-dollar leads and tire-kickers",
+                  "You're done handing money to agencies that ghost you",
+                  "You want a system you understand and own",
+                  "You're ready to put in the work to build a real legacy",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li key={item} className="flex items-start gap-3 text-sm text-gray-400">
+                    <svg className="w-5 h-5 text-green-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     {item}
@@ -137,25 +135,25 @@ export default function About() {
               </ul>
             </div>
 
-            <div className="bg-white rounded-xl p-8 border border-gray-100 shadow-sm">
+            <div className="bg-gray-900 rounded-xl p-8 border border-gray-800 border-t-4 border-t-brand-red hover:shadow-[0_0_25px_rgba(185,28,28,0.3)] transition-all">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-red-50 text-brand-red flex items-center justify-center">
+                <div className="w-10 h-10 rounded-lg bg-red-900/30 text-red-400 flex items-center justify-center">
                   <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-bold text-brand-charcoal">This is NOT For You If...</h3>
+                <h3 className="text-lg font-bold text-white">This is NOT For You If...</h3>
               </div>
               <ul className="space-y-3">
                 {[
-                  "You're looking for a 'quick fix' or get-rich-quick scheme",
-                  "You want someone else to run your business for you",
-                  "You're looking for a company to manage your paid ads",
-                  "You're unwilling to change how you operate",
+                  "You're hunting for a magic pill or overnight fix",
+                  "You want someone else to run your operation",
+                  "You just need someone to manage your ad spend",
+                  "You're not willing to change how you do things",
                   "You don't take your business seriously",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-gray-600">
-                    <svg className="w-5 h-5 text-brand-red shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li key={item} className="flex items-start gap-3 text-sm text-gray-400">
+                    <svg className="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                     {item}
@@ -168,23 +166,38 @@ export default function About() {
       </section>
 
       {/* Why We're Different */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="bg-brand-dark py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-red">Why Choose Us</span>
-            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-brand-charcoal font-[family-name:var(--font-heading)]">
-              Why School of Home Service Is Different
+            <h2 className="mt-4 text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
+              Why We&apos;re Not Like the Rest
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {differentiators.map((d) => (
-              <div key={d.title} className="flex gap-5 p-6 rounded-xl hover:bg-brand-gray transition-colors">
-                <div className="w-14 h-14 rounded-lg bg-brand-blue/10 text-brand-blue flex items-center justify-center shrink-0">
-                  {d.icon}
-                </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "We've Walked the Walk",
+                description: "We didn't learn this from a textbook. Our team has built, scaled, and sold real service companies. Every strategy comes from the trenches.",
+              },
+              {
+                title: "No Cookie-Cutter Plans",
+                description: "Your business is one of a kind and your roadmap should be too. We build custom systems around your goals, your market, and where you are right now.",
+              },
+              {
+                title: "Zero Dependency on Paid Ads",
+                description: "Most agencies want to run your ads and collect a fee. We teach you to build organic demand and local authority so you control your own pipeline.",
+              },
+              {
+                title: "We're With You the Whole Way",
+                description: "This isn't a course you buy and figure out alone. You get real coaching, real accountability, and a team that stays involved because that's what drives results.",
+              },
+            ].map((d) => (
+              <div key={d.title} className="flex gap-5 p-6 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-colors">
+                <div className="w-3 rounded-full bg-brand-red shrink-0" />
                 <div>
-                  <h3 className="text-lg font-bold text-brand-charcoal">{d.title}</h3>
-                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">{d.description}</p>
+                  <h3 className="text-lg font-bold text-white">{d.title}</h3>
+                  <p className="mt-2 text-sm text-gray-400 leading-relaxed">{d.description}</p>
                 </div>
               </div>
             ))}
@@ -192,13 +205,37 @@ export default function About() {
         </div>
       </section>
 
-      <CTASection
-        headline="Ready to Build a Business You're Proud Of?"
-        subheadline="Join hundreds of home service professionals who've transformed their businesses with our proven systems."
-        ctaText="See The Program"
-        ctaHref="/program"
-        variant="blue"
-      />
+      {/* What We Help You Build */}
+      <section className="relative bg-gradient-to-b from-black via-gray-900/95 to-black py-20 md:py-28 overflow-hidden">
+        <StarsBackground />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white font-[family-name:var(--font-heading)]">
+              What We Help You Build
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "Lead Generation", desc: "Attract higher-quality prospects who want to hire you, not haggle you." },
+              { title: "Sales & Closing", desc: "Turn conversations into booked jobs without sounding desperate or underselling yourself." },
+              { title: "Business Systems", desc: "Build the foundation to scale past six figures without burning out or losing your weekends." },
+            ].map((item) => (
+              <div key={item.title} className="bg-gray-900 border border-gray-800 border-t-4 border-t-brand-red rounded-xl p-8 text-center hover:shadow-[0_0_25px_rgba(185,28,28,0.3)] transition-all">
+                <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm text-gray-400 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 text-lg italic max-w-2xl mx-auto">
+              If you&apos;re tired of guessing, done with inconsistent months, and ready for a business that feels
+              solid, predictable, and built to last... we exist to help you get there.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CTASection />
     </>
   );
 }

@@ -1,32 +1,30 @@
 import Link from "next/link";
-
 const companyLinks = [
-  { href: "/about", label: "About Us" },
-  { href: "/success-stories", label: "Success Stories" },
-  { href: "/contact", label: "Contact" },
-  { href: "/gbpanalyzer", label: "GBP Analyzer" },
+  { href: "/about", label: "Who We Are" },
+  { href: "/success-stories", label: "Results & Stories" },
+  { href: "/contact", label: "Contact Us" },
+  { href: "/contact", label: "Work With Us" },
+  { href: "/program", label: "Partner With Us" },
 ];
 
 const serviceLinks = [
-  { href: "/program", label: "The Program" },
-  { href: "/contact", label: "Work With Us" },
+  { href: "/program", label: "The Growth Program" },
+  { href: "/gbpanalyzer", label: "Free GBP Analyzer" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="relative bg-brand-dark border-t border-gray-800 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <Link href="/" className="inline-block">
-              <span className="text-xl font-extrabold tracking-tight font-[family-name:var(--font-heading)]">
-                <span className="text-blue-400">School</span>
-                <span className="text-gray-300"> of </span>
-                <span className="text-red-400">Home Service</span>
+              <span className="text-lg font-extrabold tracking-tight font-[family-name:var(--font-heading)]">
+                School of Home Service
               </span>
             </Link>
-            <p className="mt-4 text-sm text-gray-400 leading-relaxed max-w-xs">
-              Empowering home service professionals with proven systems to build businesses that thrive.
+            <p className="mt-3 text-sm text-gray-400 leading-relaxed max-w-xs">
+              Helping American contractors build businesses worth owning.
             </p>
             <div className="mt-6 flex gap-4">
               <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">
@@ -42,10 +40,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Company</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Company</h3>
             <ul className="space-y-3">
-              {companyLinks.map((link) => (
-                <li key={link.href}>
+              {companyLinks.map((link, i) => (
+                <li key={`${link.href}-${i}`}>
                   <Link href={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
                     {link.label}
                   </Link>
@@ -55,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Services</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Services</h3>
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
@@ -68,7 +66,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+        <div className="mt-12 pt-8 border-t border-gray-800 text-sm text-gray-500">
           &copy; {new Date().getFullYear()} School of Home Service. All rights reserved.
         </div>
       </div>

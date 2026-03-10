@@ -9,7 +9,7 @@ export async function addSubscriber(
   mergeFields: Record<string, string> = {}
 ) {
   if (!API_KEY || !LIST_ID || !SERVER) {
-    console.warn("Mailchimp not configured — skipping subscriber add");
+    console.warn("Mailchimp not configured; skipping subscriber add");
     return null;
   }
 
