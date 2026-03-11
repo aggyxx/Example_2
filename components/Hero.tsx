@@ -5,16 +5,24 @@ const GOOGLE_SEARCH_URL = "https://www.google.com/search?q=School+of+Home+Servic
 export default function Hero() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background image - no heavy dark overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80')" }}
-      />
+      {/* Background video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden
+        >
+          <source src="https://assets.mixkit.co/videos/24834/24834-720.mp4" type="video/mp4" />
+        </video>
+      </div>
       {/* Light gradient for text readability only */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
-        <div className="max-w-2xl">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full flex justify-start">
+        <div className="max-w-2xl text-left">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-[family-name:var(--font-heading)] drop-shadow-lg">
             Build Your American Dream, One Job at a Time
           </h1>
