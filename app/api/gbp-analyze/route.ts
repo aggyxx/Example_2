@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { analyzeGBP, type GBPData, type GBPAnalysis } from "@/lib/gbp-analyzer";
 import { addSubscriber } from "@/lib/mailchimp";
 import { sendResultsEmail } from "@/lib/email";
+import { getSupabase } from "@/lib/supabase/api";
 
 const analysisCache = new Map<string, GBPAnalysis>();
 
@@ -147,6 +148,14 @@ export async function POST(req: NextRequest) {
     const analysis = analyzeGBP(gbpData);
     analysisCache.set(analysis.id, analysis);
 
+    const supabase = getSupabase();
+    if (supabase) {
+      await supabase.from("gbp_analyses").upsert(
+        { id: analysis.id, analysis },
+        { onConflict: "id" }
+      );
+    }
+
     sendResultsEmail(email, name.split(" ")[0], analysis).catch((err) =>
       console.error("Email send error:", err)
     );
@@ -169,11 +178,22 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Missing analysis ID" }, { status: 400 });
   }
 
-  const analysis = analysisCache.get(id);
-
-  if (!analysis) {
-    return NextResponse.json({ error: "Analysis not found or expired" }, { status: 404 });
+  const supabase = getSupabase();
+  if (supabase) {
+    const { data } = await supabase
+      .from("gbp_analyses")
+      .select("analysis")
+      .eq("id", id)
+      .single();
+    if (data?.analysis) {
+      return NextResponse.json(data.analysis as GBPAnalysis);
+    }
   }
 
-  return NextResponse.json(analysis);
+  const analysis = analysisCache.get(id);
+  if (analysis) {
+    return NextResponse.json(analysis);
+  }
+
+  return NextResponse.json({ error: "Analysis not found or expired" }, { status: 404 });
 }

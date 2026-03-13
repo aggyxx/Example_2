@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/about", label: "Who We Are" },
   { href: "/program", label: "The Program" },
   { href: "/success-stories", label: "Results & Stories" },
+  { href: "/gbpanalyzer", label: "GBP Analyzer", highlight: true },
   { href: "/contact", label: "Partner With Us" },
 ];
 
@@ -29,7 +30,12 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-md"
+              className={
+                "px-4 py-2 text-sm font-medium rounded-md transition-colors " +
+                (link.highlight
+                  ? "bg-brand-red/20 text-brand-red hover:bg-brand-red/30 hover:text-white border border-brand-red/50"
+                  : "text-gray-300 hover:text-white")
+              }
             >
               {link.label}
             </Link>
@@ -67,7 +73,12 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-gray-300 hover:bg-gray-800 rounded-md"
+                className={
+                  "block px-4 py-3 text-sm font-medium rounded-md " +
+                  (link.highlight
+                    ? "bg-brand-red/20 text-brand-red hover:bg-brand-red/30 border border-brand-red/50"
+                    : "text-gray-300 hover:bg-gray-800")
+                }
               >
                 {link.label}
               </Link>
