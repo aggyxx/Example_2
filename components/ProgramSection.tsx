@@ -26,11 +26,19 @@ export default function ProgramSection() {
           </span>
         </Link>
 
-        {/* Right image */}
-        <div
-          className="bg-cover bg-center min-h-[300px] md:min-h-full"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=960&q=80')" }}
-        />
+        {/* Right - construction workers video */}
+        <div className="relative min-h-[300px] md:min-h-full overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden
+          >
+            <source src="https://assets.mixkit.co/videos/21021/21021-720.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
 
       {/* Floating tab */}

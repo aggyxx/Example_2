@@ -37,9 +37,9 @@ export default function Contact() {
       <section className="relative min-h-[40vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1920&q=80')" }}
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=90')" }}
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white font-[family-name:var(--font-heading)]">
             Let&apos;s Talk

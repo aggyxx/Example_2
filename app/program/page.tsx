@@ -90,10 +90,16 @@ export default function Program() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80')" }}
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden
+        >
+          <source src="https://assets.mixkit.co/videos/21021/21021-720.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/70" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white font-[family-name:var(--font-heading)]">
@@ -126,7 +132,7 @@ export default function Program() {
           </div>
 
           <div className="relative">
-            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-red via-brand-blue-accent to-brand-red" />
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 timeline-line-flow" />
 
             <div className="space-y-12">
               {phases.map((p, i) => (

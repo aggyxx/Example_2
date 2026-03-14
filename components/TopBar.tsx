@@ -1,10 +1,16 @@
-import Link from "next/link";
+const GOOGLE_SEARCH_URL = "https://www.google.com/search?q=School+of+Home+Service";
 
 export default function TopBar() {
   return (
     <div className="bg-brand-dark border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-10">
-        <Link href="#" className="flex items-center gap-2 text-sm text-white hover:text-brand-red-accent transition-colors">
+        <a
+          href={GOOGLE_SEARCH_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-sm text-white hover:text-brand-red-accent transition-colors"
+          aria-label="Find School of Home Service on Google"
+        >
           <span className="flex gap-0.5 text-yellow-400">
             {[...Array(5)].map((_, i) => (
               <svg key={i} className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
@@ -13,7 +19,7 @@ export default function TopBar() {
             ))}
           </span>
           <span className="font-medium">Rated 5 Stars Nationwide</span>
-        </Link>
+        </a>
 
         <div className="flex items-center gap-4">
           <a href="#" aria-label="Instagram" className="text-gray-400 hover:text-white transition-colors">

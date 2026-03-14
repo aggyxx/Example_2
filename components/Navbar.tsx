@@ -30,7 +30,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-md"
+              className="nav-link-hover-rwb px-4 py-2 text-sm font-medium rounded-md"
             >
               {link.label}
             </Link>

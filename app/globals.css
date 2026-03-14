@@ -50,3 +50,63 @@ h1, h2, h3, h4, h5, h6 {
 .ambient-orb {
   animation: ambient-drift 20s ease-in-out infinite;
 }
+
+@keyframes nav-rwb-sweep {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.nav-link-hover-rwb {
+  color: #ffffff;
+}
+
+/* Timeline line: gradient flows downward; two identical cycles so 0% and 50% position show the same */
+@keyframes timeline-line-flow {
+  0% {
+    background-position: 0 0%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.timeline-line-flow {
+  /* Must start and end with same color (red) so loop has no stutter */
+  background: linear-gradient(
+    to bottom,
+    var(--color-brand-red) 0%,
+    var(--color-brand-blue-accent) 25%,
+    var(--color-brand-red) 50%,
+    var(--color-brand-blue-accent) 75%,
+    var(--color-brand-red) 100%
+  );
+  background-size: 100% 200%;
+  animation: timeline-line-flow 5s linear infinite;
+}
+
+.nav-link-hover-rwb:hover {
+  color: transparent;
+  transition: none;
+  /* Two identical cycles so the loop has no visible restart */
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    var(--color-brand-red) 12.5%,
+    #ffffff 25%,
+    var(--color-brand-blue-accent) 37.5%,
+    #ffffff 50%,
+    var(--color-brand-red) 62.5%,
+    #ffffff 75%,
+    var(--color-brand-blue-accent) 87.5%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: nav-rwb-sweep 2.5s linear infinite;
+}
